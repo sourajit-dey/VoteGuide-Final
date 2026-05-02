@@ -8,7 +8,7 @@
  * @version 1.0.0
  */
 
-const CACHE_NAME = 'voteguide-v3';
+const CACHE_NAME = 'voteguide-v4';
 
 const STATIC_ASSETS = [
   '/',
