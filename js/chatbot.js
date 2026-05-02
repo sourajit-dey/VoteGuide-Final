@@ -63,6 +63,7 @@ async function sendToGemini(userMessage) {
 
   const useCloudFn = typeof CLOUD_FUNCTION_URL === 'string' &&
     CLOUD_FUNCTION_URL !== 'YOUR_CLOUD_FUNCTION_URL_HERE' &&
+    CLOUD_FUNCTION_URL !== 'YOUR_CLOUD_FUNCTION_URL' &&
     CLOUD_FUNCTION_URL.length > 10;
 
   if (useCloudFn) {
