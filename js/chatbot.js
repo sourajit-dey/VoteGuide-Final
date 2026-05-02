@@ -100,7 +100,7 @@ async function sendToGemini(userMessage) {
     ]);
     const res = await fetch(
       'https://generativelanguage.googleapis.com/v1beta/' +
-      'models/gemini-2.0-flash:generateContent?key=' +
+      'models/gemini-2.5-flash:generateContent?key=' +
       GEMINI_API_KEY,
       {
         method: 'POST',
@@ -155,7 +155,7 @@ function buildChatbot() {
     '<div class="chatbot-header">' +
     '<div><div class="chatbot-header-title">VoteGuide AI</div>' +
     '<div class="chatbot-header-sub">' +
-    'Powered by Google Gemini 2.0 Flash</div></div>' +
+    'Powered by Google Gemini 2.5 Flash</div></div>' +
     '<button class="chatbot-close" id="chatbot-close"' +
     ' aria-label="Close chat window">×</button>' +
     '</div>' +

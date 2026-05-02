@@ -11,9 +11,21 @@
  * @description Loads Google Charts and triggers drawing
  * @returns {void}
  */
+/**
+ * @description Loads Google Charts and triggers drawing.
+ *              Polls until the async loader is ready.
+ * @returns {void}
+ */
 function initGoogleCharts() {
-  if (typeof google === 'undefined' ||
-      typeof google.charts === 'undefined') return;
+  if (typeof google === 'undefined') {
+    /* Charts loader not ready yet — retry in 300ms */
+    setTimeout(initGoogleCharts, 300);
+    return;
+  }
+  if (typeof google.charts === 'undefined') {
+    setTimeout(initGoogleCharts, 300);
+    return;
+  }
   google.charts.load('current', { packages: ['corechart'] });
   google.charts.setOnLoadCallback(drawAllCharts);
 }

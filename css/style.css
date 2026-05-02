@@ -309,6 +309,16 @@ footer {
   color: white;
   padding: 64px 20px 40px;
   text-align: center;
+  /* Isolate footer from Google Translate injected styles */
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .footer-brand {
@@ -316,13 +326,17 @@ footer {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 12px;
+  color: white;
+  line-height: 1.4;
 }
 
 .footer-brand span { color: var(--primary); }
 
-footer p {
+.footer-tagline {
   color: #9CA3AF;
   margin-bottom: 32px;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .footer-links {
@@ -338,6 +352,7 @@ footer p {
   text-decoration: none;
   font-weight: 500;
   transition: var(--transition);
+  font-size: 0.9375rem;
 }
 
 .footer-links a:hover {
@@ -349,6 +364,7 @@ footer p {
   font-size: 0.875rem;
   color: #9CA3AF;
   margin-bottom: 24px;
+  line-height: 1.6;
 }
 
 .powered-by strong { color: white; }
@@ -360,6 +376,7 @@ footer p {
   margin: 0 auto;
   border-top: 1px solid #374151;
   padding-top: 24px;
+  line-height: 1.6;
 }
 
 .footer-disclaimer a { color: var(--primary); text-decoration: none; }
@@ -378,6 +395,16 @@ footer p {
 .badge-saffron { background: #FFF3E0; color: #E68A2E; }
 .badge-green { background: #E8F5E9; color: var(--secondary); }
 .badge-navy { background: #E8EAF6; color: var(--navy); }
+
+/* Google Translate Glitch Fixes */
+.goog-te-banner-frame, .goog-te-menu-frame, .goog-te-balloon-frame, .goog-te-banner { display: none !important; }
+.goog-te-gadget { font-size: 0 !important; }
+.goog-te-gadget .goog-te-combo { font-size: 14px !important; margin: 4px 0; }
+#goog-gt-tt, .goog-te-spinner-pos, .goog-te-spinner { display: none !important; }
+.VIpgJd-Zvi9ab-OR9s-sn9C-skiptranslate, .VIpgJd-Zvi9ab-OR9s-sn9C { display: none !important; }
+body { top: 0 !important; position: static !important; }
+.goog-tooltip, .goog-tooltip:hover { display: none !important; }
+.goog-text-highlight { background-color: transparent !important; border: none !important; box-shadow: none !important; }
 
 @media (max-width: 768px) {
   h1 { font-size: 2rem; }
