@@ -33,13 +33,24 @@ function debounce(func, delay) {
  */
 function sanitizeInput(input) {
   if (typeof input !== 'string') return '';
-  return input
+  let clean = input
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;')
     .trim();
+  
+  /* Neutralize common XSS attributes and patterns */
+  clean = clean.replace(/onerror/gi, 'no-error');
+  clean = clean.replace(/onload/gi, 'no-load');
+  clean = clean.replace(/onclick/gi, 'no-click');
+  clean = clean.replace(/onmouseover/gi, 'no-hover');
+  clean = clean.replace(/javascript:/gi, 'no-js:');
+  clean = clean.replace(/<script/gi, '&lt;scr');
+  clean = clean.replace(/<\/script/gi, '&lt;/scr');
+  
+  return clean;
 }
 
 /**

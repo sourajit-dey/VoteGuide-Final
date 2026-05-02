@@ -138,9 +138,10 @@ section {
 
 .navbar .container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-width: 1320px;
+  gap: 12px;
 }
 
 .navbar-brand {
@@ -149,9 +150,10 @@ section {
   gap: 8px;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   color: var(--text-primary);
   text-decoration: none;
+  margin-right: auto;
 }
 
 .navbar-brand span {
@@ -160,20 +162,42 @@ section {
 
 .nav-links {
   display: flex;
-  gap: 24px;
+  gap: 8px;
 }
 
 .nav-links a {
   text-decoration: none;
   color: var(--text-secondary);
   font-weight: 500;
-  font-size: 0.9375rem;
+  font-size: 0.75rem;
   transition: var(--transition);
+  white-space: nowrap;
+  padding: 4px 6px;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--primary);
+}
+
+#google_translate_element {
+  display: flex;
+  align-items: center;
+  min-width: 130px;
+  justify-content: flex-end;
+}
+
+.goog-te-gadget-simple {
+  background-color: white !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  padding: 2px 4px !important;
+  cursor: pointer !important;
+}
+
+.goog-te-menu-value span {
+  font-size: 12px !important;
+  color: var(--text-primary) !important;
 }
 
 .hamburger {
