@@ -62,8 +62,7 @@ async function sendToGemini(userMessage) {
   conversationHistory = conversationHistory.slice(-10);
 
   const useCloudFn = typeof CLOUD_FUNCTION_URL === 'string' &&
-    CLOUD_FUNCTION_URL !== 'YOUR_CLOUD_FUNCTION_URL_HERE' &&
-    CLOUD_FUNCTION_URL !== 'YOUR_CLOUD_FUNCTION_URL' &&
+    CLOUD_FUNCTION_URL !== '' &&
     CLOUD_FUNCTION_URL.length > 10;
 
   if (useCloudFn) {
@@ -85,7 +84,9 @@ async function sendToGemini(userMessage) {
         return data.response ||
           'I could not generate a response. Please try again.';
       }
-    } catch (_) { /* fall through to direct API */ }
+    } catch (err) {
+      console.warn('Cloud Function failed, falling back to direct API', err);
+    }
   }
 
   if (!GEMINI_API_KEY ||
@@ -95,9 +96,7 @@ async function sendToGemini(userMessage) {
   }
 
   try {
-    const contents = conversationHistory.concat([
-      { role: 'user', parts: [{ text: userMessage }] }
-    ]);
+    const contents = conversationHistory;
     const res = await fetch(
       'https://generativelanguage.googleapis.com/v1beta/' +
       'models/gemini-2.5-flash:generateContent?key=' +
@@ -111,7 +110,7 @@ async function sendToGemini(userMessage) {
           },
           contents,
           generationConfig: {
-            maxOutputTokens: 300,
+            maxOutputTokens: 800,
             temperature: 0.4
           }
         })
