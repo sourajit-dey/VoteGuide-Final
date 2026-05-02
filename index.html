@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VoteGuide India - Interactive Indian Election Guide. Learn about Lok Sabha elections, voter registration, eligibility, and key election terms.">
+  <meta name="theme-color" content="#FF9933">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="VoteGuide India">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self';
+             script-src 'self' https://www.googletagmanager.com https://www.gstatic.com https://translate.google.com https://translate.googleapis.com;
+             style-src 'self' https://fonts.googleapis.com https://translate.googleapis.com;
+             font-src https://fonts.gstatic.com;
+             connect-src 'self' https://generativelanguage.googleapis.com https://www.google-analytics.com https://region1.google-analytics.com https://*.firebaseio.com https://firestore.googleapis.com https://translate.googleapis.com;
+             img-src 'self' data: https://www.google-analytics.com https://maps.googleapis.com https://www.gstatic.com;
+             frame-src https://www.google.com/maps/;">
+
+  <link rel="manifest" href="/manifest.json">
+  <link rel="dns-prefetch" href="https://generativelanguage.googleapis.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://translate.google.com">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "VoteGuide India",
+    "description": "Interactive Indian election guide powered by Google Gemini AI",
+    "applicationCategory": "EducationApplication",
+    "operatingSystem": "Web Browser",
+    "inLanguage": "en-IN",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+    "featureList": [
+      "7-stage interactive election timeline",
+      "AI chatbot powered by Google Gemini",
+      "Voter eligibility checker",
+      "Google Charts election data visualization",
+      "Google Maps polling booth finder",
+      "Google Translate 10 Indian languages",
+      "Firebase anonymous analytics",
+      "Offline PWA capability"
+    ]
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PLACEHOLDER', { anonymize_ip: true });
+  </script>
+
+  <script async src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <title>VoteGuide India — Interactive Indian Election Guide</title>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="flag-stripe" role="presentation"></div>
+
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="navbar-brand">
+        <img src="assets/chakra.svg"
+             alt="Ashoka Chakra — 24-spoked wheel from Indian flag"
+             width="28" height="28" loading="lazy">
+        Vote<span>Guide</span> India
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="#timeline">Timeline</a>
+        <a href="#eligibility">Eligibility</a>
+        <a href="#register">Register</a>
+        <a href="#glossary">Glossary</a>
+        <a href="#faq">FAQ</a>
+        <a href="#insights">Data</a>
+        <a href="#booth-finder">Find Booth</a>
+      </nav>
+      <div id="google_translate_element"
+           aria-label="Translate page using Google Translate"
+           style="display:flex;align-items:center;">
+      </div>
+      <button class="hamburger" id="hamburger"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section id="hero">
+      <div class="container">
+        <img src="assets/chakra.svg" alt="" role="presentation"
+             class="hero-chakra" loading="lazy"
+             width="72" height="72">
+        <h1 class="hero-title">
+          Your Complete Guide to<br>
+          <span class="highlight">Indian Elections</span>
+        </h1>
+        <p class="hero-subtitle">
+          Understand the Lok Sabha election process — from
+          announcement to results — in an interactive,
+          step-by-step format. Built for every Indian citizen.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#timeline" class="btn btn-primary">
+            Explore the Timeline
+          </a>
+          <a href="#eligibility" class="btn btn-secondary">
+            Check Eligibility
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-value">543</div>
+            <div class="hero-stat-label">Lok Sabha Seats</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">272</div>
+            <div class="hero-stat-label">Majority Mark</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">970M+</div>
+            <div class="hero-stat-label">Registered Voters</div>
+          </div>
+        </div>
+        <div class="live-counter" aria-live="polite" aria-atomic="true">
+          <span class="live-dot" aria-hidden="true"></span>
+          <span id="visitor-count" aria-label="Visitor count">1</span>
+          <span id="visitor-label"> citizen has explored VoteGuide</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline">
+      <div class="container">
+        <span class="section-label">The Process</span>
+        <h2 class="section-title">7 Stages of a Lok Sabha Election</h2>
+        <p class="section-desc">Follow every step of India's democratic
+        process — from the Election Commission's announcement to the
+        final counting day.</p>
+        <div id="timeline-content"></div>
+      </div>
+    </section>
+
+    <section id="eligibility">
+      <div class="container">
+        <span class="section-label">Am I Eligible?</span>
+        <h2 class="section-title">Voter Eligibility Checker</h2>
+        <p class="section-desc">Answer 4 quick questions to find out
+        if you are eligible to vote in Indian elections.</p>
+        <div id="eligibility-content"></div>
+      </div>
+    </section>
+
+    <section id="register">
+      <div class="container">
+        <span class="section-label">Get Registered</span>
+        <h2 class="section-title">Step-by-Step Registration Guide</h2>
+        <p class="section-desc">New voter, NRI, or need to update
+        your details — follow the steps below.</p>
+        <div id="register-content"></div>
+      </div>
+    </section>
+
+    <section id="glossary">
+      <div class="container">
+        <span class="section-label">Key Terms</span>
+        <h2 class="section-title">Election Glossary</h2>
+        <p class="section-desc">14 essential terms every voter
+        should know — from EVM to VVPAT to NOTA.</p>
+        <div id="glossary-content"></div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <span class="section-label">Common Questions</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">Answers to the most common questions
+        Indian voters have about the election process.</p>
+        <div id="faq-content"></div>
+      </div>
+    </section>
+
+    <section id="insights">
+      <div class="container">
+        <span class="section-label">Data and Insights</span>
+        <h2 class="section-title">Election Data Visualized</h2>
+        <p class="section-desc">Real data from the 2024 Lok Sabha
+        General Election — powered by Google Charts.</p>
+        <div class="charts-grid">
+          <div class="chart-card">
+            <div id="chart-seats"
+                 style="width:100%;height:300px;"
+                 role="img"
+                 aria-label="Donut chart showing 2024 Lok Sabha seat distribution: NDA 293 seats, INDIA Alliance 234 seats, Others 16 seats out of 543 total">
+            </div>
+          </div>
+          <div class="chart-card">
+            <div id="chart-turnout"
+                 style="width:100%;height:300px;"
+                 role="img"
+                 aria-label="Bar chart showing voter turnout percentage across all 7 phases of 2024 General Election ranging from 62 to 69 percent">
+            </div>
+          </div>
+        </div>
+        <p class="chart-source">
+          Source: Election Commission of India — eci.gov.in
+        </p>
+      </div>
+    </section>
+
+    <section id="booth-finder">
+      <div class="container">
+        <span class="section-label">Find Your Booth</span>
+        <h2 class="section-title">Locate Your Polling Booth</h2>
+        <p class="section-desc">The map shows the Election Commission
+        of India headquarters in New Delhi. To find your personal
+        polling booth, visit electoralsearch.eci.gov.in or call 1950.
+        </p>
+        <div class="map-wrapper">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.9!2d77.2090!3d28.6315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37b741d057%3A0xcdee88e47393c3f4!2sElection%20Commission%20of%20India!5e0!3m2!1sen!2sin!4v1"
+            width="100%"
+            height="350"
+            style="border:0;border-radius:12px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="Google Maps showing Election Commission of India headquarters in New Delhi"
+            aria-label="Interactive Google Map of the Election Commission of India headquarters in New Delhi">
+          </iframe>
+        </div>
+        <p style="margin-top:16px;font-size:.9rem;
+                  color:var(--text-secondary)">
+          Find your exact polling booth at
+          <a href="https://electoralsearch.eci.gov.in"
+             target="_blank" rel="noopener noreferrer">
+            electoralsearch.eci.gov.in
+          </a>
+          or call Voter Helpline <strong>1950</strong>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-brand">VoteGuide India 🗳️</div>
+      <p>An interactive guide to the Indian election process</p>
+      <div class="footer-links">
+        <a href="https://eci.gov.in"
+           target="_blank" rel="noopener noreferrer">ECI Official</a>
+        <a href="https://voters.eci.gov.in"
+           target="_blank" rel="noopener noreferrer">NVSP Portal</a>
+        <a href="https://electoralsearch.eci.gov.in"
+           target="_blank" rel="noopener noreferrer">Voter Search</a>
+        <a href="tel:1950">📞 1950</a>
+      </div>
+      <div class="powered-by">
+        Powered by <strong>Google Gemini AI</strong>
+        &amp; <strong>Google Cloud</strong>
+      </div>
+      <div class="footer-disclaimer">
+        <strong>Disclaimer:</strong> Educational tool built for
+        PromptWars Virtual 2026. Content sourced from ECI, NVSP,
+        and the Representation of the People Act, 1951.
+        Not an official government website.
+        Verify at <a href="https://eci.gov.in">eci.gov.in</a>.
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top"
+          aria-label="Back to top">↑</button>
+
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/eligibility.js"></script>
+  <script src="js/glossary.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/tests.js"></script>
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'hi,bn,ta,te,mr,gu,kn,ml,pa,or',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+  </script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+          .catch(function() {});
+      });
+    }
+  </script>
+</body>
+</html>

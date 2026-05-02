@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="45" fill="none" stroke="#000080" stroke-width="2"/>
+  <circle cx="50" cy="50" r="8" fill="#000080"/>
+  <!-- 24 spokes -->
+  <path d="M50 50 L50 5" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L61.6 6.5" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L72.5 11" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L81.8 18.2" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L89 27.5" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L93.5 38.4" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L95 50" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L93.5 61.6" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L89 72.5" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L81.8 81.8" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L72.5 89" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L61.6 93.5" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L50 95" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L38.4 93.5" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L27.5 89" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L18.2 81.8" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L11 72.5" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L6.5 61.6" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L5 50" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L6.5 38.4" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L11 27.5" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L18.2 18.2" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L27.5 11" stroke="#000080" stroke-width="2"/>
+  <path d="M50 50 L38.4 6.5" stroke="#000080" stroke-width="2"/>
+</svg>

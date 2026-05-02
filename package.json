@@ -1,0 +1,15 @@
+{
+  "name": "voteguide-india",
+  "version": "1.0.0",
+  "description": "Interactive Indian election guide — PromptWars 2026",
+  "main": "index.html",
+  "scripts": {
+    "lint": "eslint js/",
+    "deploy": "gcloud app deploy --project=YOUR_PROJECT_ID"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "globals": "^15.0.0"
+  },
+  "engines": { "node": ">=20" }
+}
