@@ -22,6 +22,7 @@ VoteGuide India is a high-performance Progressive Web App (PWA) designed to solv
 | **Google Charts** | Visualization | Rendering 2024 Lok Sabha results and phase-wise turnout data. |
 | **Google Maps Embed** | Geospatial | Interactive locator for the Election Commission headquarters. |
 | **Google Translate** | Accessibility | Real-time translation into 10 Indian languages (Hindi, Bengali, Tamil, etc.). |
+| **Google Cloud Functions** | Backend | Secure proxy for Gemini API keys and server-side validation. |
 | **Firebase Realtime DB** | Database | Anonymous storage for the live visitor counter and chatbot metrics. |
 | **Google AI Studio** | Developer Tool | Fine-tuning the chatbot's system instructions and model parameters. |
 | **Google Fonts** | Design | Modern typography (Inter and Poppins) for maximum readability. |
@@ -55,8 +56,9 @@ VoteGuide India is a high-performance Progressive Web App (PWA) designed to solv
 ## Backend & Core Logic
 
 ### 1. The "Security First" Logic
+- **Backend Proxy**: Gemini API requests are routed through a secure Google Cloud Function. This keeps the API key entirely out of the client-side code.
 - **Strict CSP**: A strict Content Security Policy blocks `unsafe-inline` and `unsafe-eval` (except where required by Google libraries) to prevent XSS.
-- **XSS Sanitization**: All user input in the chatbot and eligibility checker is sanitized via `utils.js` before processing.
+- **XSS Sanitization**: All user input in the chatbot and eligibility checker is sanitized both client-side and server-side before processing.
 
 ### 2. AI Intelligence (Gemini 2.5 Flash)
 - **Context Injection**: The chatbot uses a hidden `SYSTEM_PROMPT` containing the Representation of the People Act rules.
